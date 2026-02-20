@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naveed Khan Safi - Urdu Writer & Scriptwriter</title>
+    <style>
+        /* Import elegant fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FAF9F6;
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            color: #800020;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Urdu Text Style */
+        .urdu-text {
+            font-family: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', 'Nafees Nastaleeq', serif;
+            line-height: 2.2;
+            text-align: right;
+            direction: rtl;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #C5A880;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(250, 249, 246, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #800020;
+            text-decoration: none;
+        }
+
+        .logo span {
+            font-size: 1rem;
+            display: block;
+            color: #C5A880;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #800020;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(128, 0, 32, 0.05) 0%, rgba(197, 168, 128, 0.05) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><path d="M20,20 Q40,10 60,20 T100,20" stroke="%23800020" fill="none" stroke-width="0.5"/><path d="M20,40 Q40,30 60,40 T100,40" stroke="%23800020" fill="none" stroke-width="0.5"/><path d="M20,60 Q40,50 60,60 T100,60" stroke="%23800020" fill="none" stroke-width="0.5"/><path d="M20,80 Q40,70 60,80 T100,80" stroke="%23800020" fill="none" stroke-width="0.5"/></svg>') repeat;
+            background-size: 200px 200px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 0.5rem;
+            color: #800020;
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #C5A880;
+            font-weight: 400;
+        }
+
+        .hero-tags {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .hero-tags span {
+            padding: 0.3rem 1rem;
+            background: rgba(197, 168, 128, 0.1);
+            border-radius: 30px;
+        }
+
+        .hero-quote {
+            max-width: 700px;
+            margin: 2rem auto;
+            font-size: 1.2rem;
+            color: #555;
+            font-style: italic;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            margin: 0.5rem;
+            border: 2px solid #800020;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: #800020;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: #800020;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #800020;
+        }
+
+        .btn-secondary:hover {
+            background-color: #800020;
+            color: white;
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 0;
+            background-color: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(145deg, #800020, #C5A880);
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 30px rgba(0,0,0,0.1);
+        }
+
+        .about-image::before {
+            content: 'نوید خان صافی';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Noto Nastaliq Urdu', serif;
+            font-size: 2.5rem;
+            color: rgba(255,255,255,0.2);
+            white-space: nowrap;
+            text-align: center;
+            width: 100%;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .highlight-item {
+            background: rgba(197, 168, 128, 0.1);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(128, 0, 32, 0.1);
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            padding: 6rem 0;
+            background-color: #FAF9F6;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(128, 0, 32, 0.1);
+        }
+
+        .project-image {
+            height: 250px;
+            background: linear-gradient(45deg, #800020, #C5A880);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-image.book::before {
+            content: 'موت کا رقص';
+            font-family: 'Noto Nastaliq Urdu', serif;
+            font-size: 2rem;
+            color: rgba(255,255,255,0.2);
+        }
+
+        .project-image.mohrat::before {
+            content: 'مہرَت';
+            font-family: 'Noto Nastaliq Urdu', serif;
+            font-size: 2rem;
+            color: rgba(255,255,255,0.2);
+        }
+
+        .project-image.humraaz::before {
+            content: 'ہمراز';
+            font-family: 'Noto Nastaliq Urdu', serif;
+            font-size: 2rem;
+            color: rgba(255,255,255,0.2);
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .project-title h3 {
+            font-size: 1.5rem;
+            color: #800020;
+        }
+
+        .project-badge {
+            background: #C5A880;
+            color: white;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .project-genre {
+            color: #C5A880;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            color: #555;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .project-meta span {
+            background: #f0f0f0;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+        }
+
+        .btn-card {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            border: 1px solid #800020;
+            border-radius: 30px;
+            text-decoration: none;
+            color: #800020;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-card:hover {
+            background: #800020;
+            color: white;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1000px;
+            margin: 3rem auto 0;
+        }
+
+        .contact-info {
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(128, 0, 32, 0.02) 0%, rgba(197, 168, 128, 0.02) 100%);
+            border-radius: 15px;
+        }
+
+        .contact-info h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 0.8rem;
+            background: rgba(255,255,255,0.5);
+            border-radius: 10px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #800020;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+            background: #C5A880;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #800020;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .btn-submit {
+            background: #800020;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-submit:hover {
+            background: #C5A880;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 2rem 0;
+            background: #333333;
+            color: white;
+            text-align: center;
+        }
+
+        .footer p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+
+            .hero-tags {
+                flex-wrap: wrap;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-image {
+                height: 300px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        /* Urdu text specific styles */
+        .urdu-block {
+            font-family: 'Noto Nastaliq Urdu', serif;
+            direction: rtl;
+            text-align: right;
+            font-size: 1.1rem;
+            line-height: 2;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container" >
+            <a href="#home" class="logo" >
+                Naveed Khan Safi
+                <span>نوید خان صافی</span>
+            </a>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#portfolio">Work</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content container" style="margin-top: 60px;">
+            <h1 class="fade-in">Naveed Khan Safi</h1>
+            <h2 class="fade-in">نوید خان صافی</h2>
+            <div class="hero-tags fade-in">
+                <span>Spiritual</span>
+                <span>Romantic</span>
+                <span>Thriller</span>
+                <span>Social</span>
+            </div>
+            <div class="hero-quote urdu-block fade-in">
+
+              رقصِ  موت  مسلسل  ہے، گزر جانا  اٹل  ہے  یہ  رقص  ایک  دن  ہمیں  بے  جان  کر  دے  گا  اس  بات  پر  یقین  ہی  ہماری  مشکلوں  کا  حل  ہے
+            </div>
+
+            <div class="fade-in">
+                <a href="#portfolio" class="btn btn-primary">Explore My Work</a>
+                <a href="#about" class="btn btn-secondary">Learn My Story</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">The Writer / مصنف</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="Nk2.jpg" alt="" width="100%">
+                </div>
+                <div class="about-text">
+                    <p><strong>Naveed Khan Safi</strong> is an emerging Urdu script and fiction writer whose work explores the delicate balance between faith, love, morality and human psychology.</p>
+                    
+                    <p>His storytelling blends spiritual depth with emotional intensity, often placing characters at the crossroads of desire, duty and destiny. Through philosophical undertones and socially grounded narratives, he aims to create stories that not only entertain but awaken reflection.</p>
+                    
+                    <p>Writing primarily in Urdu, Naveed's unique voice draws from the rich traditions of Urdu literature while addressing contemporary social and spiritual conflicts. His upcoming book, <em>Mot ka Raqs</em>, is a philosophical mirror held up to society, while his television scripts, <em>Mohrat</em> and <em>Humraaz</em>, explore the complexities of love, faith, and the supernatural.</p>
+                    
+                    <p>Currently working on completing his book and developing his scripts for the screen, he is actively seeking collaborations with production houses that value meaningful, layered storytelling.</p>
+                    
+                    <div class="highlights">
+                        <span class="highlight-item">📖 Book in Publishing Process</span>
+                        <span class="highlight-item">🎬 2 TV Drama Scripts</span>
+                        <span class="highlight-item">✍️ Urdu Writer</span>
+                        <span class="highlight-item">🤝 Open to Collaborations</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2 class="section-title">My Creations / میرے تخلیقات</h2>
+            
+            <div class="projects-grid">
+                <!-- Book: Mot ka Raqs -->
+                <div class="project-card">
+                    <div class="project-image book">
+                        <img src="" alt="">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-title">
+                            <h3>موت کا رقص</h3>
+                            <span class="project-badge">Book</span>
+                        </div>
+                        <div class="project-genre">Spiritual | Philosophical | Social</div>
+                        <div class="project-meta">
+                            <span>📖 In Publishing Process</span>
+                            <span>🏆 Proofreading Done</span>
+                        </div>
+                        <div class="project-description urdu-block">
+                            "موت کا رقص" محض کہانیوں کا مجموعہ نہیں بلکہ ایک ایسا آئینہ ہے جو ہمیں ہماری حقیقت سے روشناس کراتا ہے۔ یہ کتاب نہ صرف اس تلخ مگر لازمی حقیقت کا سامنا کرواتی ہے کہ موت ہر لمحہ قریب ہے بلکہ ان رویوں اور سماجی مسائل کو بھی بے نقاب کرتی ہے جو ہماری زندگی کو اندھیروں میں دھکیل دیتے ہیں۔
+                        </div>
+                        <a href="#contact" class="btn-card">Inquire for Publishing Rights</a>
+                    </div>
+                </div>
+
+                <!-- Script: Mohrat -->
+                <div class="project-card">
+                    <div class="project-image mohrat"></div>
+                    <div class="project-content">
+                        <div class="project-title">
+                            <h3>مہرَت</h3>
+                            <span class="project-badge">Script</span>
+                        </div>
+                        <div class="project-genre">Spiritual Romantic Social Drama</div>
+                        <div class="project-meta">
+                            <span>📺 TV Drama</span>
+                            <span>25 Episodes</span>
+                        </div>
+                        <div class="project-description">
+                            <strong>Logline:</strong> مذہبی حدود، خاندانی غیرت اور سماجی دباؤ کے بیچ ایک نوجوان جوڑے کی محبت اس وقت آزمائش بن جاتی ہے جب اصول، قربانی اور ایمان ان کے جذبات سے ٹکرا جاتے ہیں۔
+                        </div>
+                        <a href="#contact" class="btn-card">Request Full Synopsis</a>
+                    </div>
+                </div>
+
+                <!-- Script: Humraaz -->
+                <div class="project-card">
+                    <div class="project-image humraaz"></div>
+                    <div class="project-content">
+                        <div class="project-title">
+                            <h3>ہمراز</h3>
+                            <span class="project-badge">Script</span>
+                        </div>
+                        <div class="project-genre">Supernatural Romantic Thriller</div>
+                        <div class="project-meta">
+                            <span>📺 TV Drama</span>
+                            <span>25 Episodes</span>
+                        </div>
+                        <div class="project-description">
+                            <strong>Logline:</strong> ایک طاقتور جن، جس کے خاندان کو انسانوں کی لالچ نے تباہ کیا، انتقام لینے کے لیے انسانی روپ میں اسی حویلی میں داخل ہوتا ہے — مگر دشمن کی بیٹی سے محبت اسے بدلہ اور انسانیت کے درمیان ایک خطرناک انتخاب پر مجبور کر دیتی ہے۔
+                        </div>
+                        <a href="#contact" class="btn-card">Request Full Synopsis</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  <!-- Contact Section -->
+<section id="contact" class="contact">
+    <div class="container">
+        <h2 class="section-title">Let's Collaborate / رابطہ کریں</h2>
+        
+        <div class="contact-container">
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <h4>Get in Touch</h4>
+                <p style="margin-bottom: 2rem; color: #666;">I am actively seeking collaborations with production houses, publishers, and fellow creatives who are passionate about meaningful storytelling. If you are interested in my work, please reach out.</p>
+                
+                <div class="contact-detail">
+                    <div style="width: 40px; height: 40px; background: #800020; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">✉️</div>
+                    <div>
+                        <strong>Email</strong><br>
+                        <a href="mailto:naveed030104087@gmail.com" style="color: #555; text-decoration: none;">naveed030104087@gmail.com</a>
+                    </div>
+                </div>
+                
+                <div class="contact-detail">
+                    <div style="width: 40px; height: 40px; background: #800020; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">📍</div>
+                    <div>
+                        <strong>Based in</strong><br>
+                        <span style="color: #555;">Pakistan (Open to International Collaborations)</span>
+                    </div>
+                </div>
+                
+                <div class="social-links">
+                    <a href="#" aria-label="Twitter">𝕏</a>
+                    <a href="#" aria-label="LinkedIn">in</a>
+                    <a href="#" aria-label="Instagram">📷</a>
+                </div>
+            </div>
+
+            <!-- Contact Form - FIXED -->
+            <form action="https://formspree.io/f/meellzrp" method="POST">
+                <!-- Hidden spam protection -->
+                <input type="text" name="_gotcha" style="display:none !important">
+                
+                <!-- Optional: Redirect after submission (create a thanks.html page) -->
+                <!-- <input type="hidden" name="_redirect" value="https://yourdomain.com/thanks.html"> -->
+                
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <select name="subject">
+                        <option value="Script Inquiry">Script Inquiry</option>
+                        <option value="Book Rights">Book Rights</option>
+                        <option value="Collaboration">Collaboration</option>
+                        <option value="General">General</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2024 Naveed Khan Safi. All rights reserved.</p>
+            <p style="margin-top: 0.5rem; opacity: 0.6;">A Spiritual & Psychological Urdu Storyteller</p>
+        </div>
+    </footer>
+
+    <!-- Smooth scroll for navigation -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
